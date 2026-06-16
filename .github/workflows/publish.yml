@@ -1,0 +1,64 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  lint:
+    name: Lint gate
+    uses: ./.github/workflows/lint.yml
+
+  build-linux:
+    name: Build Linux
+    needs: lint
+    uses: ./.github/workflows/build-linux.yml
+    with:
+      signed: true
+    secrets: inherit
+
+  upload:
+    name: Upload artifacts
+    needs: [build-linux]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: linux-bundle
+          path: dist/linux
+
+      - name: Generate latest.json
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          TAG="${GITHUB_REF_NAME}"
+          BASE="https://github.com/${{ github.repository }}/releases/download/${TAG}"
+          APPIMAGE_SIG=$(cat dist/linux/appimage/traffic-sim_${VERSION}_amd64.AppImage.sig 2>/dev/null || echo "")
+          PUB_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          cat > dist/latest.json << ENDJSON
+          {
+            "version": "${VERSION}",
+            "notes": "See the release page for full changelog.",
+            "pub_date": "${PUB_DATE}",
+            "platforms": {
+              "linux-x86_64": {
+                "url": "${BASE}/traffic-sim_${VERSION}_amd64.AppImage",
+                "signature": "${APPIMAGE_SIG}"
+              }
+            }
+          }
+          ENDJSON
+
+      - name: Upload to existing release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload "${GITHUB_REF_NAME}" \
+            dist/linux/deb/*.deb \
+            dist/linux/rpm/*.rpm \
+            dist/linux/appimage/*.AppImage \
+            dist/linux/appimage/*.AppImage.sig \
+            dist/latest.json
