@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.2](https://github.com/MatyasZsombor/traffic-sim-testing/compare/v0.1.1...v0.1.2) (2026-06-16)
+
+
+### Features
+
+* add v2 string as test ([665da40](https://github.com/MatyasZsombor/traffic-sim-testing/commit/665da40dca01493c101aea147e4e1690718eb71d))
+
+
+### CI
+
+* bump action version ([21d0591](https://github.com/MatyasZsombor/traffic-sim-testing/commit/21d0591bda1a8ca0cc7199a22bc10b46b4782e7d))
+* fix release please not bumping toml ([6dea4a6](https://github.com/MatyasZsombor/traffic-sim-testing/commit/6dea4a6c17353b9bd61889a0eb90d412eb62afc7))
+* fix release please not bumping toml ([6dea4a6](https://github.com/MatyasZsombor/traffic-sim-testing/commit/6dea4a6c17353b9bd61889a0eb90d412eb62afc7))
+
 ## [0.1.1](https://github.com/MatyasZsombor/traffic-sim-testing/compare/v0.1.0...v0.1.1) (2026-06-16)
 
 
