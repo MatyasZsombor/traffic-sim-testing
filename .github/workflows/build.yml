@@ -60,7 +60,7 @@ jobs:
         run: ${{ inputs.signed && 'just build-signed' || 'just build' }}
 
       - name: Upload Linux bundle
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-bundle
           path: build/artifacts/
