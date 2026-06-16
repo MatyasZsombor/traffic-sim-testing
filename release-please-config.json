@@ -43,10 +43,26 @@
     ".": {
       "release-type": "simple",
       "extra-files": [
-        "app/src-tauri/tauri.conf.json",
-        "app/src-tauri/Cargo.toml",
-        "bridge/Cargo.toml",
-        "frontend/package.json"
+        {
+          "type": "json",
+          "path": "app/src-tauri/tauri.conf.json",
+          "jsonpath": "$.version"
+        },
+        {
+          "type": "toml",
+          "path": "app/src-tauri/Cargo.toml",
+          "jsonpath": "$.package.version"
+        },
+        {
+          "type": "toml",
+          "path": "bridge/Cargo.toml",
+          "jsonpath": "$.package.version"
+        },
+        {
+          "type": "json",
+          "path": "frontend/package.json",
+          "jsonpath": "$.version"
+        }
       ]
     }
   }
