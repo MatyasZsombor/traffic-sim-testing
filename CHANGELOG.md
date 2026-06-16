@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/MatyasZsombor/traffic-sim-testing/compare/v0.1.1...v0.1.2) (2026-06-16)
+
+
+### CI
+
+* update ci to build, publish and lint ([11484fc](https://github.com/MatyasZsombor/traffic-sim-testing/commit/11484fcaef18280f968bb7d0c647308d098db8c1))
+
 ## [0.1.1](https://github.com/MatyasZsombor/traffic-sim-testing/compare/v0.1.0...v0.1.1) (2026-06-16)
 
 
