@@ -25,22 +25,18 @@
     {
       "type": "chore",
       "section": "Chores",
-      "hidden": true
     },
     {
       "type": "refactor",
-      "section": "Refactor",
-      "hidden": true
+      "section": "Refactor"
     },
     {
       "type": "test",
-      "section": "Tests",
-      "hidden": true
+      "section": "Tests"
     },
     {
       "type": "ci",
-      "section": "CI",
-      "hidden": true
+      "section": "CI"
     }
   ],
   "packages": {
