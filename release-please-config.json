@@ -1,7 +1,7 @@
 {
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
-    "changelog-sections": [
+  "changelog-sections": [
     {
       "type": "feat",
       "section": "Features"
@@ -24,23 +24,19 @@
     },
     {
       "type": "chore",
-      "section": "Chores",
-      "hidden": true
+      "section": "Chores"
     },
     {
       "type": "refactor",
-      "section": "Refactor",
-      "hidden": true
+      "section": "Refactor"
     },
     {
       "type": "test",
-      "section": "Tests",
-      "hidden": true
+      "section": "Tests"
     },
     {
       "type": "ci",
-      "section": "CI",
-      "hidden": true
+      "section": "CI"
     }
   ],
   "packages": {
